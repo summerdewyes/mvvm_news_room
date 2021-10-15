@@ -1,6 +1,6 @@
-package com.summerdewyes.mvvm_news_app.ui.api
+package com.summerdewyes.mvvm_news_app.api
 
-import com.summerdewyes.mvvm_news_app.ui.other.Constants.Companion.BASE_URL
+import com.summerdewyes.mvvm_news_app.other.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -2,17 +2,35 @@ package com.summerdewyes.mvvm_news_app.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.summerdewyes.mvvm_news_app.R
-import kotlinx.android.synthetic.main.activity_news.*
+import com.summerdewyes.mvvm_news_app.databinding.ActivityNewsBinding
+import com.summerdewyes.mvvm_news_app.db.ArticleDatabase
+import com.summerdewyes.mvvm_news_app.repository.NewsRepository
+
 
 class NewsActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityNewsBinding
+
+    lateinit var viewModel: NewsViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_news)
+        binding = ActivityNewsBinding.inflate(layoutInflater)
+        setContentView(binding.root) // contentView에 등록
 
-        bottomNavigationView.setupWithNavController(newsNavHostFragment.findNavController())
+
+        val newsRepository = NewsRepository(ArticleDatabase(this))
+        val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(NewsViewModel::class.java)
+
+
+        val navHostFragment= supportFragmentManager.findFragmentById(R.id.newsNavHostFragment) as NavHostFragment
+        val navController= navHostFragment.navController
+        binding.bottomNavigationView.setupWithNavController(navController)
 
     }
 }

@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.summerdewyes.mvvm_news_app.R
-import com.summerdewyes.mvvm_news_app.adpater.NewsAsyncListAdapter
+import com.summerdewyes.mvvm_news_app.adpater.NewsAdapter
 import com.summerdewyes.mvvm_news_app.databinding.FragmentSearchNewsBinding
-import com.summerdewyes.mvvm_news_app.other.Constants.Companion.SEARCH_NEWS_TIME_DELAY
+import com.summerdewyes.mvvm_news_app.util.Constants.Companion.SEARCH_NEWS_TIME_DELAY
 import com.summerdewyes.mvvm_news_app.ui.NewsActivity
 import com.summerdewyes.mvvm_news_app.ui.NewsViewModel
 import com.summerdewyes.mvvm_news_app.util.Resource
@@ -28,7 +28,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
     private val binding get() = _binding!!
 
     lateinit var viewModel: NewsViewModel
-    lateinit var newsAdapter: NewsAsyncListAdapter
+    lateinit var newsAdapter: NewsAdapter
     val TAG = "SearchNewsFragment"
 
     override fun onCreateView(
@@ -73,7 +73,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { newsResponse ->
-                        newsAdapter.differ.submitList(newsResponse.articles)
+                        newsAdapter.submitList(newsResponse.articles)
                     }
                 }
                 is Resource.Error -> {
@@ -99,7 +99,7 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
     }
 
     private fun setupRecyclerView() {
-        newsAdapter = NewsAsyncListAdapter()
+        newsAdapter = NewsAdapter()
         binding.rvSearchNews.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)

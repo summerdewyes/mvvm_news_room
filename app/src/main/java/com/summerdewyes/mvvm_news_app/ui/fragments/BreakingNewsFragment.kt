@@ -10,11 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.summerdewyes.mvvm_news_app.R
-import com.summerdewyes.mvvm_news_app.adpater.NewsAsyncListAdapter
+import com.summerdewyes.mvvm_news_app.adpater.NewsAdapter
 import com.summerdewyes.mvvm_news_app.databinding.FragmentBreakingNewsBinding
 import com.summerdewyes.mvvm_news_app.ui.NewsActivity
 import com.summerdewyes.mvvm_news_app.ui.NewsViewModel
 import com.summerdewyes.mvvm_news_app.util.Resource
+
 
 class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
@@ -23,7 +24,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     private val binding get() = _binding!!
 
     lateinit var viewModel: NewsViewModel
-    lateinit var newsAdapter: NewsAsyncListAdapter
+    lateinit var newsAdapter: NewsAdapter
 
     val TAG = "BreakingNewsFragment"
 
@@ -31,7 +32,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentBreakingNewsBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -56,7 +57,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
                 is Resource.Success -> {
                     hideProgressBar()
                     response.data?.let { newsResponse ->
-                        newsAdapter.differ.submitList(newsResponse.articles)
+                        newsAdapter.submitList(newsResponse.articles)
                     }
                 }
                 is Resource.Error -> {
@@ -83,7 +84,7 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
     }
 
     private fun setupRecyclerView() {
-        newsAdapter = NewsAsyncListAdapter()
+        newsAdapter = NewsAdapter()
         binding.rvBreakingNews.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)

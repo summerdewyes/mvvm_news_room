@@ -1,4 +1,4 @@
-package com.summerdewyes.mvvm_news_app.other
+package com.summerdewyes.mvvm_news_app.util
 
 class Constants {
     companion object{

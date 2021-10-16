@@ -1,10 +1,11 @@
 package com.summerdewyes.mvvm_news_app.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebChromeClient
+import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.summerdewyes.mvvm_news_app.R
@@ -32,9 +33,10 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = (activity as NewsActivity).viewModel
+
         val article = args.article
         binding.webView.apply {
-            webChromeClient = WebChromeClient()
+            webViewClient = WebViewClient()
             loadUrl(article.url)
         }
     }

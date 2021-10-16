@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.summerdewyes.mvvm_news_app.R
-import com.summerdewyes.mvvm_news_app.adpater.NewsAsyncListAdapter
+import com.summerdewyes.mvvm_news_app.adpater.NewsAdapter
 import com.summerdewyes.mvvm_news_app.databinding.FragmentSavedNewsBinding
 import com.summerdewyes.mvvm_news_app.ui.NewsActivity
 import com.summerdewyes.mvvm_news_app.ui.NewsViewModel
@@ -20,7 +20,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
     private val binding get() = _binding!!
 
     lateinit var viewModel: NewsViewModel
-    lateinit var newsAdapter: NewsAsyncListAdapter
+    lateinit var newsAdapter: NewsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,11 +45,10 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
                 bundle
             )
         }
-
     }
 
     private fun setupRecyclerView() {
-        newsAdapter = NewsAsyncListAdapter()
+        newsAdapter = NewsAdapter()
         binding.rvSavedNews.apply {
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)

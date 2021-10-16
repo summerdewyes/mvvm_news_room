@@ -8,8 +8,8 @@ import com.summerdewyes.mvvm_news_app.models.Source
 class Converters {
 
     @TypeConverter
-    fun fromSource(source: Source): String {
-        return source.name
+    fun fromSource(source: Source?): String? {
+        return source?.name
     }
 
     @TypeConverter

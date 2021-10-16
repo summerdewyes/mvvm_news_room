@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/breakingNewsFragment"
-        android:title="Breaking News"
+        android:title="뉴스"
         android:icon="@drawable/ic_breaking_news"
         />
 
     <item android:id="@+id/savedNewsFragment"
-        android:title="Saved News"
+        android:title="관심 기사"
         android:icon="@drawable/ic_favorite"
         />
 
     <item android:id="@+id/searchNewsFragment"
-        android:title="Search News"
+        android:title="검색"
         android:icon="@drawable/ic_all_news"
         />
 </menu>

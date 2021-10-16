@@ -38,12 +38,12 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         val article = args.article
         binding.webView.apply {
             webViewClient = WebViewClient()
-            loadUrl(article.url)
+            article.url?.let { loadUrl(it) }
         }
 
         binding.fab.setOnClickListener {
             viewModel.saveArticle(article)
-            Snackbar.make(view, "관심 기사를 저장했습니다 :)", Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(view, "관심 기사로 저장했습니다 :)", Snackbar.LENGTH_SHORT).show()
         }
     }
 }

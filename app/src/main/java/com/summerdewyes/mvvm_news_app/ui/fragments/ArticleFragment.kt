@@ -1,7 +1,6 @@
 package com.summerdewyes.mvvm_news_app.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +25,7 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentArticleBinding.inflate(inflater, container, false)
         return binding.root
     }

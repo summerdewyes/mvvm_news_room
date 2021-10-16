@@ -29,7 +29,7 @@ class SavedNewsFragment : Fragment(R.layout.fragment_saved_news) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSavedNewsBinding.inflate(inflater, container, false)
         return binding.root
     }

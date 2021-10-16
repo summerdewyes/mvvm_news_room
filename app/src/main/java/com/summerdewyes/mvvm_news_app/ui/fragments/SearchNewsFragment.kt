@@ -1,7 +1,6 @@
 package com.summerdewyes.mvvm_news_app.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,13 +32,13 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
 
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
-    val TAG = "SearchNewsFragment"
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentSearchNewsBinding.inflate(inflater, container, false)
         return binding.root
     }

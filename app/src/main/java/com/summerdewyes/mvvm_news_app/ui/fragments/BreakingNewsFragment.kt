@@ -2,7 +2,6 @@ package com.summerdewyes.mvvm_news_app.ui.fragments
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,8 +28,6 @@ class BreakingNewsFragment : Fragment(R.layout.fragment_breaking_news) {
 
     lateinit var viewModel: NewsViewModel
     lateinit var newsAdapter: NewsAdapter
-
-    val TAG = "BreakingNewsFragment"
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.webkit.WebViewClient
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.snackbar.Snackbar
 import com.summerdewyes.mvvm_news_app.R
 import com.summerdewyes.mvvm_news_app.databinding.FragmentArticleBinding
 import com.summerdewyes.mvvm_news_app.ui.NewsActivity
@@ -38,6 +39,11 @@ class ArticleFragment : Fragment(R.layout.fragment_article) {
         binding.webView.apply {
             webViewClient = WebViewClient()
             loadUrl(article.url)
+        }
+
+        binding.fab.setOnClickListener {
+            viewModel.saveArticle(article)
+            Snackbar.make(view, "관심 기사를 저장했습니다 :)", Snackbar.LENGTH_SHORT).show()
         }
     }
 }

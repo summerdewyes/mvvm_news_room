@@ -8,6 +8,5 @@ mvvm_news_app
 * Jetpack
 * Room
 * Coroutines
-* Dagger
 * Retrofit2
 * Glide

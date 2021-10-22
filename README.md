@@ -16,5 +16,5 @@ mvvm_news_app
 ## 실행 결과
 헤드라인 뉴스를 확인하고, 새로운 뉴스를 검색하거나 관심 기사로 추가할 수 있습니다.
 
-![뉴스]()
+![뉴스룸](https://user-images.githubusercontent.com/74890579/138403472-acfd0314-3d2e-42f7-a354-e280e8caa008.gif)
 

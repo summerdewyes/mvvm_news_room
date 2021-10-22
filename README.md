@@ -5,8 +5,10 @@ mvvm_news_app
     
 ## 사용 라이브러리
 
-* Jetpack
-* Room
 * Coroutines
-* Retrofit2
 * Glide
+* Jetpack
+* Retrofit2
+* Room
+
+
